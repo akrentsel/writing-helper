@@ -110,6 +110,7 @@
     position: relative;
     font-size: 18px;
     font-family: 'Kalam', cursive; /* Use the Kalam font */
+    user-select: none;
 }
   
 .popup-content button {
@@ -122,6 +123,7 @@
     cursor: pointer;
     font-size: 18px;
     font-family: 'Kalam', cursive; /* Use the Kalam font */
+    width: 90px; /* Set a fixed width */
 }
   
 .popup-content button:hover {
@@ -131,6 +133,33 @@
 .popup-content button.copied {
     background-color: #987284; /* Keep the lighter shade */
     cursor: default;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px; /* Space between the buttons */
+}
+
+.restart-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #8F2D56;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px; /* Set font size for the "again" text */
+    width: 90px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+    font-family: 'Kalam', cursive; /* Use the Kalam font */
+}
+
+.restart-button:hover {
+    background-color: #987284;
 }
   
 .close {

@@ -35,6 +35,17 @@ const WritingHelper = () => {
     }
   }, [timer]);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.metaKey && event.key === 's') {
+        event.preventDefault();
+        console.log('Command + S prevented!'); 
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const handleTextChange = (e) => {
     setText(e.target.value);
     setTimer(100); // Reset timer to full when typing
@@ -51,6 +62,10 @@ const WritingHelper = () => {
     });
   };
 
+  const restartPage = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="writing-helper">
       <h1 className="title">Writing Helper</h1>
@@ -65,25 +80,31 @@ const WritingHelper = () => {
       />
       <div className="info-icon">
         i
-        <div className="tooltip">keep typing to avoid having your text disappear<br />made by Alexander Krentsel (procrastinating)</div>
+        <div className="tooltip">keep typing to avoid having your text disappear,<br />made by Alexander Krentsel (procrastinating)</div>
       </div>
       {showPopup && (
         <div className="popup">
           <div className="popup-content">
             <span className="close" onClick={() => setShowPopup(false)}>&times;</span>
             <p>Poof, your text is gone!</p>
-            <button
-              onClick={copyToClipboard}
-              disabled={isCopied}
-              className={isCopied ? 'copied' : ''}
-            >
-              {isCopied ? 'copied' : 'copy'}
-            </button>
+            <div className="button-container">
+              <button
+                onClick={copyToClipboard}
+                disabled={isCopied}
+                className={isCopied ? 'copied' : ''}
+              >
+                {isCopied ? 'copied' : ' copy '}
+              </button>
+              <button className="restart-button" onClick={restartPage}>
+                again
+              </button>
+            </div>
           </div>
         </div>
       )}
     </div>
   );
-};
+  };
+// &#x21bb; {/* Unicode for the restart icon */}
 
 export default WritingHelper;
