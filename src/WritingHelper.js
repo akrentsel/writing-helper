@@ -7,6 +7,7 @@ const WritingHelper = () => {
   const [timer, setTimer] = useState(100);
   const [isTyping, setIsTyping] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [isEditable, setIsEditable] = useState(true);
   const intervalRef = useRef(null);
   const textBoxRef = useRef(null);
 
@@ -27,6 +28,13 @@ const WritingHelper = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (timer === 0) {
+      setIsEditable(false);
+      setShowPopup(true);
+    }
+  }, [timer]);
+
   const handleTextChange = (e) => {
     setText(e.target.value);
     setTimer(100); // Reset timer to full when typing
@@ -35,8 +43,12 @@ const WritingHelper = () => {
     }
   };
 
-  const togglePopup = () => {
-    setShowPopup(!showPopup);
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(text).then(() => {
+    //   alert('Text copied to clipboard!');
+    }, (err) => {
+      alert('Failed to copy text: ', err);
+    });
   };
 
   return (
@@ -45,17 +57,22 @@ const WritingHelper = () => {
       <div className="timer-bar" style={{ width: `${timer}%` }}></div>
       <textarea
         ref={textBoxRef}
-        className="writing-box"
+        className={`writing-box ${!isEditable ? 'faded' : ''}`}
         placeholder="Start writing..."
         value={text}
         onChange={handleTextChange}
+        disabled={!isEditable}
       />
-      <div className="info-icon" onClick={togglePopup}>i</div>
+      <div className="info-icon">
+        i
+        <div className="tooltip">keep typing to avoid having your text disappear<br />made by Alexander Krentsel (procrastinating)</div>
+      </div>
       {showPopup && (
         <div className="popup">
           <div className="popup-content">
-            <span className="close" onClick={togglePopup}>&times;</span>
-            <p>Made by Alex Krentsel.</p>
+            <span className="close" onClick={() => setShowPopup(false)}>&times;</span>
+            <p>Poof, your text is gone!</p>
+            <button onClick={copyToClipboard}>Copy</button>
           </div>
         </div>
       )}

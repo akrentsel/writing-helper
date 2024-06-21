@@ -31,25 +31,31 @@
     border-radius: 5px;
     outline: none;
     resize: none;
+    transition: color 0.5s; /* Smooth transition for fading text */
   }
   
   .writing-box::placeholder {
     color: grey;
   }
   
+  .writing-box.faded {
+    color: #f0f0f0; /* Match the background color to make the text "disappear" */
+  }
+  
   .info-icon {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 40px;
-    height: 40px;
+    width: 30px; /* Smaller size */
+    height: 30px; /* Smaller size */
     background-color: #d3d3d3; /* Light grey color */
     color: #666; /* Slightly darker grey for the "i" */
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 16px; /* Regular font size */
+    font-family: Arial, sans-serif; /* Regular font */
     cursor: pointer;
     user-select: none;
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
@@ -58,6 +64,29 @@
   .info-icon:hover {
     background-color: #a9a9a9; /* Darker grey on hover */
     color: #fff; /* White color for the "i" on hover */
+  }
+  
+  .tooltip {
+    visibility: hidden;
+    width: 300px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position the tooltip above the icon */
+    right: 0; /* Align tooltip to the left */
+    margin-left: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size:smaller;
+  }
+  
+  .info-icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
   }
   
   .popup {
@@ -79,6 +108,24 @@
     border-radius: 10px;
     text-align: center;
     position: relative;
+    font-size: 18px;
+    font-family: 'Kalam', cursive; /* Use the Kalam font */
+  }
+  
+  .popup-content button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #8F2D56;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Kalam', cursive; /* Use the Kalam font */
+  }
+  
+  .popup-content button:hover {
+    background-color: #987284;
   }
   
   .close {
