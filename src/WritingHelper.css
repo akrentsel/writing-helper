@@ -1,0 +1,90 @@
+/* src/WritingHelper.css */
+.writing-helper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+    position: relative;
+  }
+  
+  .title {
+    font-family: 'Pacifico', cursive;
+    font-size: 48px;
+    margin-bottom: 20px;
+    user-select: none; /* Prevent the title text from being selected */
+  }
+  
+  .timer-bar {
+    height: 10px;
+    background-color: red;
+    transition: width 0.05s linear;
+    width: 500px; /* Set the width of the timer bar to match the text box */
+    margin-bottom: 20px;
+  }
+  
+  .writing-box {
+    width: 500px; /* Set the width of the text box */
+    height: 300px;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+  }
+  
+  .writing-box::placeholder {
+    color: grey;
+  }
+  
+  .info-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #d3d3d3; /* Light grey color */
+    color: #666; /* Slightly darker grey for the "i" */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .info-icon:hover {
+    background-color: #a9a9a9; /* Darker grey on hover */
+    color: #fff; /* White color for the "i" on hover */
+  }
+  
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Pacifico', cursive;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
