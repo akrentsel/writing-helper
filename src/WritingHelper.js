@@ -1,4 +1,3 @@
-// src/WritingHelper.js
 import React, { useState, useEffect, useRef } from 'react';
 import './WritingHelper.css';
 
@@ -8,6 +7,7 @@ const WritingHelper = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [isEditable, setIsEditable] = useState(true);
+  const [isCopied, setIsCopied] = useState(false); // New state for managing button state
   const intervalRef = useRef(null);
   const textBoxRef = useRef(null);
 
@@ -45,7 +45,7 @@ const WritingHelper = () => {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(text).then(() => {
-    //   alert('Text copied to clipboard!');
+      setIsCopied(true); // Change button text to "Copied" and disable it
     }, (err) => {
       alert('Failed to copy text: ', err);
     });
@@ -72,7 +72,13 @@ const WritingHelper = () => {
           <div className="popup-content">
             <span className="close" onClick={() => setShowPopup(false)}>&times;</span>
             <p>Poof, your text is gone!</p>
-            <button onClick={copyToClipboard}>Copy</button>
+            <button
+              onClick={copyToClipboard}
+              disabled={isCopied}
+              className={isCopied ? 'copied' : ''}
+            >
+              {isCopied ? 'copied' : 'copy'}
+            </button>
           </div>
         </div>
       )}

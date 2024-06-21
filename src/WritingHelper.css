@@ -5,24 +5,24 @@
     align-items: center;
     margin: 50px;
     position: relative;
-  }
+}
   
-  .title {
+.title {
     font-family: 'Pacifico', cursive;
     font-size: 48px;
     margin-bottom: 20px;
     user-select: none; /* Prevent the title text from being selected */
-  }
+}
   
-  .timer-bar {
+.timer-bar {
     height: 10px;
     background-color: red;
     transition: width 0.05s linear;
     width: 500px; /* Set the width of the timer bar to match the text box */
     margin-bottom: 20px;
-  }
+}
   
-  .writing-box {
+.writing-box {
     width: 500px; /* Set the width of the text box */
     height: 300px;
     font-size: 16px;
@@ -32,17 +32,17 @@
     outline: none;
     resize: none;
     transition: color 0.5s; /* Smooth transition for fading text */
-  }
+}
   
-  .writing-box::placeholder {
+.writing-box::placeholder {
     color: grey;
-  }
+}
   
-  .writing-box.faded {
+.writing-box.faded {
     color: #f0f0f0; /* Match the background color to make the text "disappear" */
-  }
+}
   
-  .info-icon {
+.info-icon {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -59,14 +59,14 @@
     cursor: pointer;
     user-select: none;
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
-  }
+}
   
-  .info-icon:hover {
+.info-icon:hover {
     background-color: #a9a9a9; /* Darker grey on hover */
     color: #fff; /* White color for the "i" on hover */
-  }
+}
   
-  .tooltip {
+.tooltip {
     visibility: hidden;
     width: 300px;
     background-color: #555;
@@ -81,15 +81,15 @@
     margin-left: 0;
     opacity: 0;
     transition: opacity 0.3s;
-    font-size:smaller;
-  }
+    font-size: smaller;
+}
   
-  .info-icon:hover .tooltip {
+.info-icon:hover .tooltip {
     visibility: visible;
     opacity: 1;
-  }
+}
   
-  .popup {
+.popup {
     position: fixed;
     top: 0;
     left: 0;
@@ -100,9 +100,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
   
-  .popup-content {
+.popup-content {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -110,9 +110,9 @@
     position: relative;
     font-size: 18px;
     font-family: 'Kalam', cursive; /* Use the Kalam font */
-  }
+}
   
-  .popup-content button {
+.popup-content button {
     margin-top: 10px;
     padding: 10px 20px;
     background-color: #8F2D56;
@@ -122,16 +122,21 @@
     cursor: pointer;
     font-size: 18px;
     font-family: 'Kalam', cursive; /* Use the Kalam font */
-  }
+}
   
-  .popup-content button:hover {
+.popup-content button:hover {
     background-color: #987284;
-  }
+}
+
+.popup-content button.copied {
+    background-color: #987284; /* Keep the lighter shade */
+    cursor: default;
+}
   
-  .close {
+.close {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 24px;
     cursor: pointer;
-  }
+}
