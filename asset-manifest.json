@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/writing-helper/static/css/main.c689b69c.css",
+    "main.js": "/writing-helper/static/js/main.0bf68f0e.js",
+    "static/js/453.49d7ef33.chunk.js": "/writing-helper/static/js/453.49d7ef33.chunk.js",
+    "index.html": "/writing-helper/index.html",
+    "main.c689b69c.css.map": "/writing-helper/static/css/main.c689b69c.css.map",
+    "main.0bf68f0e.js.map": "/writing-helper/static/js/main.0bf68f0e.js.map",
+    "453.49d7ef33.chunk.js.map": "/writing-helper/static/js/453.49d7ef33.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c689b69c.css",
+    "static/js/main.0bf68f0e.js"
+  ]
+}
